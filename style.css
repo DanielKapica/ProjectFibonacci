@@ -1,0 +1,7 @@
+.container{
+    height: initial;
+    display: grid;
+    grid-template-rows: 75% 25%;
+    grid-gap: 8px;
+    grid-auto-flow: column;
+}
