@@ -4,42 +4,23 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>FibonacciProject</title>
+    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <script src="code.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
 </head>
 
 <body>
-    <div id="header">
-        <h1>Project Fibonacci V0.1</h1>
-        <h2>Collaborators</h2>
-        <ul>
-            <li>Marty</li>
-            <li>Daniel</li>
-            <li>Luke</li>
-            <li>Thaddeaous</li>
-            <li>Jack</li>
-        </ul>
+    <h1>Quiz on Important Facts</h1>
+    Which one is fake news?
+    <div class="quiz-container">
+        <div id="quiz"></div>
     </div>
-    <div id="container">
-        <div class="article" id="article1">
-            <!-- This is where the first article goes-->
-            <h1 id="title">Title</h1>
-            <p id="text">Text</p>
-            <p id="source">Source</p>
-        </div>
-        <div class="article" id="article2">
-            <!-- This is where the second article goes-->
-            <h1 id="title">Title</h1>
-            <p id="text">Text</p>
-            <p id="source">Source</p>
-        </div>
-        <div id="answer">
-            <!-- this is where the answer and text goes -->
-        </div>
-
-    </div>
+    <button id="previous">Previous Question</button>
+    <button id="next">Next Question</button>
+    <button id="submit">Submit Quiz</button>
+    <div id="results"></div>
 </body>
+<script src="js/main.js"></script>
 
 </html>
