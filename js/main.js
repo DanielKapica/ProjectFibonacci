@@ -1,186 +1,134 @@
-(function () {
-    const myQuestions = [
-        //QUESTION 1
-        {
-            article1: {
-                title: "Title of article1",
-                content: "Content of article1",
-                source: "Source link of article1"
-            },
-            article2: {
-                title: "Title of article2",
-                content: "Content of article2",
-                source: "Source link of article2"
-            },
-            answers: {
-                a: "Article A",
-                b: "Article B",
-            },
-            correctAnswer: "a"
-        },
-        //QUESTION 2
-        {
-            article1: {
-                title: "Title of article1",
-                content: "Content of article1",
-                source: "Source link of article1"
-            },
-            article2: {
-                title: "Title of article2",
-                content: "Content of article2",
-                source: "Source link of article2"
-            },
-            answers: {
-                a: "Article A",
-                b: "Article B",
-            },
-            correctAnswer: "a"
-        },
-        //QUESTION 3
-        {
-            article1: {
-                title: "Title of article1",
-                content: "Content of article1",
-                source: "Source link of article1"
-            },
-            article2: {
-                title: "Title of article2",
-                content: "Content of article2",
-                source: "Source link of article2"
-            },
-            answers: {
-                a: "Article A",
-                b: "Article B",
-            },
-            correctAnswer: "a"
-        }
-    ];
+let currentArticle1 = {
+    "number": 1,
+    "title": "",
+    "text": "",
+    "source": "",
+    "isMisleading": null,
+    "reason": ""
+}
 
-    function buildQuiz() {
-        // we'll need a place to store the HTML output
-        const output = [];
+let currentArticle2 = {
+    "number": 2,
+    "title": "",
+    "text": "",
+    "source": "",
+    "isMisleading": null,
+    "reason": ""
+}
 
-        // for each question...
-        myQuestions.forEach((currentQuestion, questionNumber) => {
-            // we'll want to store the list of answer choices
-            const answers = [];
 
-            // and for each available answer...
-            for (letter in currentQuestion.answers) {
-                // ...add an HTML radio button
-                answers.push(
-                    `<label>
-               <input type="radio" name="question${questionNumber}" value="${letter}">
-                ${letter} :
-                ${currentQuestion.answers[letter]}
-             </label>`
-                );
-            }
+function getRandomArticle(isMisleading) {
+    //Fiter articles depending on is isMisleading param
+    let filteredArticles = articlesJSON.filter(article => {
+        return article.isMisleading == isMisleading
+    })
 
-            // add this question and its answers to the output
-            output.push(
-                `<div class="slide">
+    //Return a random article from the filtered array filteredArticles
+    return filteredArticles[randomNumber(0, filteredArticles.length)]
+}
 
-                <div class="article-container">
-             <div class="article card" id="article1">
-            <!-- This is where the first article goes-->
-            <h1 id="title">${currentQuestion.article1.title}</h1>
-            <p id="text">${currentQuestion.article1.content}</p>
-            <p id="source">${currentQuestion.article1.source}</p>
-        </div>
+//Return a random Number between two values
+function randomNumber(lowest, highest) {
+    return Math.floor((Math.random() * highest) + lowest);
+}
 
-        <div class="article card" id="article2">
-            <!-- This is where the first article goes-->
-            <h1 id="title">${currentQuestion.article2.title}</h1>
-            <p id="text">${currentQuestion.article2.content}</p>
-            <p id="source">${currentQuestion.article2.source}</p>
-        </div>
-                </div>
-             <div class="answers"> ${answers.join("")} </div>
-           </div>`
-            );
-        });
+function updateArticle(numberOfArticle, article) {
+    if (numberOfArticle == 1) {
+        //Get html article tags
+        title1 = document.getElementById("articleTitle1")
+        text1 = document.getElementById("articleText1")
+        source1 = document.getElementById("articleSource1")
 
-        // finally combine our output list into one string of HTML and put it on the page
-        quizContainer.innerHTML = output.join("");
+        //Update currentArticle1
+        currentArticle1.title = article.title
+        currentArticle1.text = article.text
+        currentArticle1.source = article.source
+        currentArticle1.reason = article.reason
+
+        //Assign values to html tags
+        title1.innerHTML = currentArticle1.title
+        text1.innerHTML = currentArticle1.text
+        source1.innerHTML = currentArticle1.source
+    } else {
+        //Get html article tags
+        title2 = document.getElementById("articleTitle2")
+        text2 = document.getElementById("articleText2")
+        source2 = document.getElementById("articleSource2")
+
+        //Update currentArticle2
+        currentArticle2.title = article.title
+        currentArticle2.text = article.text
+        currentArticle2.source = article.source
+        currentArticle2.reason = article.reason
+
+        //Assign values to html tags
+        title2.innerHTML = currentArticle2.title
+        text2.innerHTML = currentArticle2.text
+        source2.innerHTML = currentArticle2.source
+    }
+}
+
+function getArticleSet() {
+    let randomPlacement = 1
+    const realArticle = getRandomArticle(true);
+    const misleadingArticle = getRandomArticle(false);
+
+    //Put the fake and real news on different sides of the screen
+    randomPlacement = randomNumber(1, 2)
+    if (randomNumber == 1) {
+        updateArticle(1, realArticle);
+        updateArticle(2, misleadingArticle);
+    } else {
+        updateArticle(2, realArticle);
+        updateArticle(1, misleadingArticle);
     }
 
-    function showResults() {
-        // gather answer containers from our quiz
-        const answerContainers = quizContainer.querySelectorAll(".answers");
+}
 
-        // keep track of user's answers
-        let numCorrect = 0;
+function leftArticle() {
+    showReason();
+}
 
-        // for each question...
-        myQuestions.forEach((currentQuestion, questionNumber) => {
-            // find selected answer
-            const answerContainer = answerContainers[questionNumber];
-            const selector = `input[name=question${questionNumber}]:checked`;
-            const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+function rightArticle() {
+    showReason();
+}
 
-            // if answer is correct
-            if (userAnswer === currentQuestion.correctAnswer) {
-                // add to the number of correct answers
-                numCorrect++;
+function showReason() {
+    //document.body.style.background = 'red';
 
-                // color the answers green
-                answerContainers[questionNumber].style.color = "lightgreen";
-            } else {
-                // if answer is wrong or blank
-                // color the answers red
-                answerContainers[questionNumber].style.color = "red";
-            }
-        });
 
-        // show number of correct answers out of total
-        resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-    }
+    reason1 = currentArticle1.reason
+    reason2 = currentArticle2.reason
 
-    function showSlide(n) {
-        slides[currentSlide].classList.remove("active-slide");
-        slides[n].classList.add("active-slide");
-        currentSlide = n;
+    document.getElementById('reason-container').style.display = "block";
 
-        if (currentSlide === 0) {
-            previousButton.style.display = "none";
-        } else {
-            previousButton.style.display = "inline-block";
-        }
 
-        if (currentSlide === slides.length - 1) {
-            nextButton.style.display = "none";
-            submitButton.style.display = "inline-block";
-        } else {
-            nextButton.style.display = "inline-block";
-            submitButton.style.display = "none";
-        }
-    }
+    document.getElementById('reasonTitle').innerHTML = `Reasons`
 
-    function showNextSlide() {
-        showSlide(currentSlide + 1);
-    }
+    document.getElementById('reasonText').innerHTML =
+        `<ul>
+    <h3>Left Article</h3>
+    <li>${reason1}</li>
+    <h3>Right Article</h3>
+    <li>${reason2}</li></ul>`
 
-    function showPreviousSlide() {
-        showSlide(currentSlide - 1);
-    }
+}
 
-    const quizContainer = document.getElementById("quiz");
-    const resultsContainer = document.getElementById("results");
-    const submitButton = document.getElementById("submit");
+function hideReason() {
+    document.getElementById('reason-container').style.display = "none";
+}
 
-    // display quiz right away
-    buildQuiz();
+function nextQuestion() {
+    hideReason()
+    getArticleSet()
+}
 
-    const previousButton = document.getElementById("previous");
-    const nextButton = document.getElementById("next");
-    const slides = document.querySelectorAll(".slide");
-    let currentSlide = 0;
+//ONSTART
+getArticleSet();
 
-    showSlide(0);
+//Listeners
+let article1Btn = document.getElementById('article1')
+let article2Btn = document.getElementById('article2')
 
-    // on submit, show results
-    submitButton.addEventListener("click", showResults);
-    previousButton.addEventListener("click", showPreviousSlide);
-    nextButton.addEventListener("click", showNextSlide);
-})();
+article1Btn.addEventListener("click", leftArticle, false)
+article2Btn.addEventListener("click", rightArticle, false)
