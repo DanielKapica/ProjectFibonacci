@@ -105,11 +105,13 @@ function showReason(){
     reason1 = currentArticle1.reason
     reason2 = currentArticle2.reason
 
+    document.getElementById('reason-container').style.display = "block";
+
+
     document.getElementById('reasonTitle').innerHTML = `Reasons`
 
     document.getElementById('reasonText').innerHTML = `<ul><li>${reason1}</li><li>${reason2}</li></ul>`
     
-    //document.getElementById('reason-container').style.display = "block";
 }
 
 function hideReason(){
@@ -122,3 +124,10 @@ function nextQuestion(){
 }
 //ONSTART
 getArticleSet();
+
+//Listeners
+let article1Btn = document.getElementById('article1')
+let article2Btn = document.getElementById('article2')
+
+article1Btn.addEventListener("click",leftArticle, false)
+article2Btn.addEventListener("click",rightArticle, false)
