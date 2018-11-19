@@ -1,4 +1,4 @@
-let articles = [{
+let articlesJSON = [{
     "id": 1,
     "title": "Stephen Barclay named new Brexit Secretary",
     "text": "Stephen Barclay has been confirmed as the new Brexit Secretary as Theresa May seeks to fill posts in her cabinet.",
