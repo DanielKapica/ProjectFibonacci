@@ -17,6 +17,7 @@ let currentArticle2 = {
 }
 
 const articlesJSON = [{
+        "id": 1,
         "title": "Stephen Barclay named new Brexit Secretary",
         "text": "Stephen Barclay has been confirmed as the new Brexit Secretary as Theresa May seeks to fill posts in her cabinet.",
         "source": "https://www.bbc.co.uk/news/uk-46241693",
@@ -24,12 +25,7 @@ const articlesJSON = [{
         "reason": "BBC is a trusted news source"
     },
     {
-        "title": "Ada is organised",
-        "text": "Ada staff know what they are doing",
-        "source": "https://www.bbc.co.uk/news/uk-46241693",
-        "isMisleading": true,
-        "reason": "Ada staff are not organised"
-    }, {
+        "id": 2,
         "title": "You'll never believe how much weight this celebrity lost in a month!",
         "text": "",
         "source": "www.express.co.uk",
@@ -37,6 +33,8 @@ const articlesJSON = [{
         "reason": "This is not fake news (clickbait) because… the context is upfront and apparent and we have the name of a person so we can verify the information by searching. We have no context to who the celebrity is, and it is using persuasive language to lure in the reader instead of facts."
     },
     {
+        "id": 3,
+        "matchingArticleId": 4,
         "title": "Queen Elizabeth Removes Obamas For Royal Wedding Guest List",
         "text": `For eight years, Michelle Obama genuinely thought she was a queen and expected to be treated like one. Now that she’s a regular citizen, she’s having a hard time of letting go of her former status as the (failed) first lady and keeps trying to push her way into every major social scene where she doesn’t belong and is apparently not invited.
 When she heard the news that Prince Harry was marrying a black American girl, she assumed it was her place to be on that guest list, which has to be approved by the Queen of England herself. Michelle made a desperation move to sneak a spot on that exclusive guest list and as soon as the real queen found out what the wannabe royalty did, she delivered a brutal beatdown that was definitely deserved.
@@ -47,6 +45,8 @@ Barack practically stalked the prince on Twitter and made a post within seconds 
         "reason": "This is fake news (a false story) because…it is worded in a way that comes across as there is less background of their story and is less likely to be true."
     },
     {
+        "id": 4,
+        "matchingArticleId": 3,
         "title": "Queen Elizabeth Has Reportedly Invited Meghan Markle's Mother Doria to Spend Christmas With the Royals",
         "text": `Meghan Markle's mother Doria Ragland made a big splash at the royal wedding. Despite all of the pre-wedding drama caused by Meghan Markle's father, Doria was poised, collected, and there for Meghan (as the mother of the bride should be).
 
@@ -111,11 +111,20 @@ function updateArticle(numberOfArticle, article) {
 }
 
 function getArticleSet() {
+    let randomPlacement = 1
     const realArticle = getRandomArticle(true);
     const misleadingArticle = getRandomArticle(false);
 
-    updateArticle(1, realArticle);
-    updateArticle(2, misleadingArticle);
+    //Put the fake and real news on different sides of the screen
+    randomPlacement = randomNumber(1, 2)
+    if (randomNumber == 1) {
+        updateArticle(1, realArticle);
+        updateArticle(2, misleadingArticle);
+    } else {
+        updateArticle(2, realArticle);
+        updateArticle(1, misleadingArticle);
+    }
+
 }
 
 function leftArticle() {
@@ -155,6 +164,7 @@ function nextQuestion() {
     hideReason()
     getArticleSet()
 }
+
 //ONSTART
 getArticleSet();
 
