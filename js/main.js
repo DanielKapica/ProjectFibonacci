@@ -4,7 +4,8 @@ let currentArticle1 = {
     "text": "",
     "source": "",
     "isMisleading": null,
-    "reason": ""
+    "reason": "",
+    "img": ""
 }
 
 let currentArticle2 = {
@@ -13,7 +14,8 @@ let currentArticle2 = {
     "text": "",
     "source": "",
     "isMisleading": null,
-    "reason": ""
+    "reason": "",
+    "img": ""
 }
 
 function getRandomArticle(isMisleading) {
@@ -30,6 +32,7 @@ function getRandomArticle(isMisleading) {
 function randomNumber(lowest, highest) {
     return Math.floor((Math.random() * highest) + lowest);
 }
+
 
 function updateArticle(numberOfArticle, article) {
     if (numberOfArticle == 1) {
@@ -48,6 +51,7 @@ function updateArticle(numberOfArticle, article) {
         title1.innerHTML = currentArticle1.title;
         text1.innerHTML = currentArticle1.text;
         source1.innerHTML = currentArticle1.source;
+
     } else {
         //Get html article tags
         title2 = document.getElementById("articleTitle2");
@@ -95,7 +99,6 @@ function rightArticle() {
 function showReason() {
     //document.body.style.background = 'red';
 
-
     reason1 = currentArticle1.reason;
     reason2 = currentArticle2.reason;
 
@@ -110,7 +113,6 @@ function showReason() {
     <li>${reason1}</li>
     <h3>Right Article</h3>
     <li>${reason2}</li></ul>`;
-
 }
 
 function hideReason() {

@@ -37,16 +37,6 @@ let articlesJSON = [{
         "reason": "This is not fake news (a false story) because…it states ‘reportedly’ so this means that the people presenting think that the source is not 100% reliable but this is still real news."
     },
     {
-        "id": 5,
-        "matchingArticleId": 6,
-        "title": "LGBT adding P for Pedosexual",
-        "text": "LGBT is adding the letter P for Pedosexual. Although we knew it was coming, it breaks my heart to see the acceptance of it. Pedophile is when you have “relations” with children. Pedosexual is exclusive to only boys. We officially cannot protect our children. This world can end now! #imdone",
-        "source": "https://4archive.org/board/b/thread/691172252",
-        "isMisleading": true,
-        "reason": "This is fake news (a false story) because… the writer clearly has a motivate to delegitimize the LGBT movement by referring to something irrelevant and controversial",
-        "img": "https://www.pinknews.co.uk/images/2018/10/lgbt-rainbow-flag_640x345_acf_cropped.jpg"
-    },
-    {
         "id": 6,
         "matchingArticleId": 5,
         "title": "Why we’re adding the Q to LGBT",
