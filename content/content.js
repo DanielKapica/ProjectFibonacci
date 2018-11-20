@@ -67,7 +67,7 @@ let articlesJSON = [{
     {
         "id": 9,
         "matchingArticleId": 10,
-        "title": "VIOLENT LEFTIST MOB Beat the Hell Out of Innocent Jewish Man in Philly Riots (VIDEO)",
+        "title": "VIOLENT LEFTIST MOB Beat the Hell Out of Innocent Jewish Man in Philly Riots",
         "text": "A very small group of pro-American activists planned a protest called “We The People” to take place Saturday in Philadelphia.But a very few number of conservative protesters showed up. So the far left activists beat the hell out of a Jewish man walking down the street.",
         "source": "https://www.thegatewaypundit.com/2018/11/violent-leftist-mob-beat-the-hell-out-of-innocent-jewish-man-in-philly-riots-video/",
         "isMisleading": true,

@@ -38,36 +38,55 @@ function updateArticle(numberOfArticle, article) {
     if (numberOfArticle == 1) {
         //Get html article tags
         title1 = document.getElementById("articleTitle1");
-        text1 = document.getElementById("articleText1");
-        source1 = document.getElementById("articleSource1");
+        //text1 = document.getElementById("articleText1");
+        sourceFooter1 = document.getElementById("sourceFooter1");
+
 
         //Update currentArticle1
         currentArticle1.title = article.title;
-        currentArticle1.text = article.text;
+        //currentArticle1.text = article.text;
         currentArticle1.source = article.source;
         currentArticle1.reason = article.reason;
 
+        //Change source address to Anonymous if no link provided
+        if(!currentArticle1.source.includes('.')){
+            currentArticle1.source = "Anonymous"
+        }
+
         //Assign values to html tags
         title1.innerHTML = currentArticle1.title;
-        text1.innerHTML = currentArticle1.text;
-        source1.innerHTML = currentArticle1.source;
+        //text1.innerHTML = currentArticle1.text;
+        sourceFooter1.innerHTML = `
+        <a href="${currentArticle1.source}"
+        <p id="articleSource1">Source: ${currentArticle1.source}</p>
+        </a>
+        `;
 
     } else {
         //Get html article tags
         title2 = document.getElementById("articleTitle2");
-        text2 = document.getElementById("articleText2");
-        source2 = document.getElementById("articleSource2");
+        //text2 = document.getElementById("articleText2");
+        sourceFooter2 = document.getElementById("sourceFooter2");
 
         //Update currentArticle2
         currentArticle2.title = article.title;
-        currentArticle2.text = article.text;
+        //currentArticle2.text = article.text;
         currentArticle2.source = article.source;
         currentArticle2.reason = article.reason;
 
+        //Change source address to Anonymous if no link provided
+        if(!currentArticle2.source.includes('.')){
+            currentArticle2.source = "Anonymous"
+        }
+        
         //Assign values to html tags
         title2.innerHTML = currentArticle2.title;
-        text2.innerHTML = currentArticle2.text;
-        source2.innerHTML = currentArticle2.source;
+        //text2.innerHTML = currentArticle2.text;
+        sourceFooter2.innerHTML = `
+        <a href="${currentArticle2.source}"
+        <p id="articleSource1">Source: ${currentArticle2.source}</p>
+        </a>
+        `;
     }
 }
 
@@ -110,9 +129,10 @@ function showReason() {
     document.getElementById('reasonText').innerHTML =
         `<ul>
     <h3>Left Article</h3>
-    <li>${reason1}</li>
-    <h3>Right Article</h3>
-    <li>${reason2}</li></ul>`;
+    <li><h4>${reason1}</h4></li>
+    <h3>Right Article</h3> 
+    <li><h4>${reason2}</h4></li>
+    </ul>`;
 }
 
 function hideReason() {
