@@ -14,15 +14,19 @@
 
 <body>
     <header class="navbar navbar-light bg-light">
-        <h1>Misleading Content Test</h1>
+        <a id="navbar-link" class="navbar-brand">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Fibonacci_spiral_34.svg" width="90" height="70"
+                class="d-inline-block align-top" alt="">
+            Project Fibonacci
+        </a>
     </header>
     <!--Quiz Container-->
     <div class="card row align-items-center justify-content-center" style="width:100%;">
-        <h2>Click The Misleading Article</h2>
+        <h2 id="headlineInstruction" class="">Click The Trueful Article</h2>
         <!-- Article Containers -->
         <div class="conatiner-fluid">
             <div class="row">
-                <div class="article card card-hover col" id="article1" onclick="leftArticle()" data-toggle="collapse"
+                <div class=" article card col" id="article1" onclick="leftArticle()" data-toggle="collapse"
                     href="#reason-container" role="div" aria-expanded="false" aria-controls="reason-container">
                     <img id="img2" class="card-img-top" src="">
                     <h2 id="articleTitle1"></h2>
@@ -30,6 +34,7 @@
                     <div id="sourceFooter1" class="card-footer">
                         <!--JS will put the source here-->
                     </div>
+                    <button class="btn btn-secondary" onclick="leftArticle()">Select</button>
                 </div>
 
                 <div class="article card card-hover col" id="article2" onclick="rightArticle()" data-toggle="collapse"
@@ -40,6 +45,7 @@
                     <div id="sourceFooter2" class="card-footer">
                         <!--JS will put the source here-->
                     </div>
+                    <button class="btn btn-secondary" onclick="rightArticle()">Select</button>
                 </div>
 
             </div>
@@ -47,7 +53,7 @@
     </div>
 
     <div class="card row reason-container border-success collapse" id="reason-container">
-        <div class="card-body text-primary">
+        <div id="reasonContainerBody" class="card-body">
             <h1 id="reasonTitle" class="card-title">ReasonTitle</h1>
             <p id="reasonText" class="card-text">ReasonText</p>
         </div>
@@ -55,6 +61,50 @@
             <button class="btn btn-primary" onclick="nextQuestion()">Next</button>
         </div>
     </div>
+
+    <div id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Find Out More About Misleading Articles</h5>
+                    <ul>
+                        <li><a href="#"> </a></li>
+                        <li><a href="https://docs.google.com/document/d/1csMNt7EivUfn16yuMhbl2bw2lQvbGX3ia-M1XFk-E20/edit?usp=sharing">Content
+                                Examples</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 info">
+                    <h5>Information</h5>
+                    <p>Our mission is to use positive reinforcement learning to help teens navigate online baises by
+                        developing critical thinking.</p>
+                </div>
+            </div>
+        </div>
+        <div class="second-bar">
+            <div class="container">
+                <h2 class="logo"><a href="#"> LOGO </a></h2>
+                <div class="social-icons">
+                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 <script src="content/content.js"></script>

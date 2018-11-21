@@ -71,7 +71,7 @@ let articlesJSON = [{
         "text": "A very small group of pro-American activists planned a protest called “We The People” to take place Saturday in Philadelphia.But a very few number of conservative protesters showed up. So the far left activists beat the hell out of a Jewish man walking down the street.",
         "source": "https://www.thegatewaypundit.com/2018/11/violent-leftist-mob-beat-the-hell-out-of-innocent-jewish-man-in-philly-riots-video/",
         "isMisleading": true,
-        "reason": "This is fake news (partial journalism) because the writer clearly identifies with a side, with the headline featuring unprofessional phrasing “Beat the hell out of",
+        "reason": "This is fake news (partial journalism) because the writer clearly identifies with a side, with the headline featuring unprofessional phrasing “Beat the hell out of“",
         "img": "https://psmag.com/.image/t_share/MTU3MjA3Njg5NjI0MDM3MTE1/gettyimages-830759682.jpg",
     },
     {
