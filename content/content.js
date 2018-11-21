@@ -16,6 +16,7 @@ let articlesJSON = [{
         "source": "www.express.co.uk",
         "isMisleading": true,
         "reason": "This is not fake news (clickbait) because… the context is upfront and apparent and we have the name of a person so we can verify the information by searching. We have no context to who the celebrity is, and it is using persuasive language to lure in the reader instead of facts.",
+        "img":""
     },
     {
         "id": 3,
@@ -34,7 +35,8 @@ let articlesJSON = [{
         "text": `Meghan Markle's mother Doria Ragland made a big splash at the royal wedding. Despite all of the pre-wedding drama caused by Meghan Markle's father, Doria was poised, collected, and there for Meghan (as the mother of the bride should be). In the days leading up to the wedding, Ragland made time to have tea with the Queen, where the two supposedly discussed—with Meghan and Prince Harry—whether or not Meghan Markle's father Thomas Markle should still attend the wedding (after he staged paparazzi photos for money and then spread lies to gain public sympathy). It's clear that Doria earned the Queen's trust during this time, as the The Daily Mail is reporting that Queen Elizabeth has invited Meghan Markle's mother to spend Christmas with the royals this year, an extremely rare offer that hasn't ever been extended to Kate Middleton's family.`,
         "source": "https://www.elle.com/culture/celebrities/a24629749/queen-elizabeth-meghan-markle-mother-doria-christmas-invitation/",
         "isMisleading": false,
-        "reason": "This is not fake news (a false story) because…it states ‘reportedly’ so this means that the people presenting think that the source is not 100% reliable but this is still real news."
+        "reason": "This is not fake news (a false story) because…it states ‘reportedly’ so this means that the people presenting think that the source is not 100% reliable but this is still real news.",
+        "img": ""
     },
     {
         "id": 6,
@@ -43,7 +45,8 @@ let articlesJSON = [{
         "text": "I am proud to announce that Equality Federation’s staff and board, several of whom identify as queer, have decided to add the letter Q to our mission and begin using the full acronym LGBTQ. To some this decision may seem like we are late to the party and to others it may be a challenge. I remember when the word queer was near ubiquitously used as an anti-gay epithet outside of “queer theory” courses in liberal arts schools. Through a process of reclaiming, the word queer, like many other words, has evolved to represent something more meaningful.",
         "source": "https://www.huffingtonpost.com/rebecca-isaacs/why-were-adding-the-q_b_8535208.html",
         "isMisleading": false,
-        "reason": "This is not fake news (a false story) because… the writer provides context immediately, being upfront that this is an opinion piece, and something shared by a group of people “we’re”"
+        "reason": "This is not fake news (a false story) because… the writer provides context immediately, being upfront that this is an opinion piece, and something shared by a group of people “we’re”",
+        "img" : ""
     },
     {
         "id": 7,
@@ -62,7 +65,8 @@ let articlesJSON = [{
         "text": "",
         "source": "",
         "isMisleading": false,
-        "reason": "This is not fakes new (clickbait) because… the writer does not bother with any persuasive language as the subject matter is intriguing enough"
+        "reason": "This is not fakes new (clickbait) because… the writer does not bother with any persuasive language as the subject matter is intriguing enough",
+        "img" : ""
     },
     {
         "id": 9,
@@ -81,6 +85,7 @@ let articlesJSON = [{
         "text": "An Eritrean man shot by an Israeli security guard and then attacked by a mob who mistook him for an assailant in a fatal bus station attack has died. Israeli news websites posted security camera footage that shows Mulu Habtom Zerhom, crawling on the floor and a security guard shooting him.",
         "source": "https://www.belfasttelegraph.co.uk/news/world-news/eritrean-man-shot-and-beaten-to-death-in-israel-after-being-mistaken-for-terrorist-following-fatal-bus-station-attack-34122162.html",
         "isMisleading": false,
-        "reason": "This is not fake news (impartial journalism) because the writer remains neutral and professional by just stating the facts"
+        "reason": "This is not fake news (impartial journalism) because the writer remains neutral and professional by just stating the facts",
+        "img": ""
     },
 ]

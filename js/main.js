@@ -37,10 +37,10 @@ function randomNumber(lowest, highest) {
 function updateArticle(numberOfArticle, article) {
     if (numberOfArticle == 1) {
         //Get html article tags
-        title1 = document.getElementById("articleTitle1");
+       let title1 = document.getElementById("articleTitle1");
         //text1 = document.getElementById("articleText1");
-        sourceFooter1 = document.getElementById("sourceFooter1");
-        //img1 = document.getElementById('img1')
+        let sourceFooter1 = document.getElementById("sourceFooter1");
+        //let img1 = document.getElementById('img1')
 
 
         //Update currentArticle1
@@ -50,7 +50,7 @@ function updateArticle(numberOfArticle, article) {
         currentArticle1.reason = article.reason;
         //currentArticle1.img = article.img;
         currentArticle1.isMisleading = article.isMisleading
-
+ 
         //Change source address to Anonymous if no link provided
         if (!currentArticle1.source.includes('.')) {
             currentArticle1.source = "Anonymous"
@@ -68,10 +68,10 @@ function updateArticle(numberOfArticle, article) {
 
     } else {
         //Get html article tags
-        title2 = document.getElementById("articleTitle2");
+        let title2 = document.getElementById("articleTitle2");
         //text2 = document.getElementById("articleText2");
-        sourceFooter2 = document.getElementById("sourceFooter2");
-        //img2 = document.getElementById('img2')
+        let sourceFooter2 = document.getElementById("sourceFooter2");
+        //let img2 = document.getElementById('img2')
 
         //Update currentArticle2
         currentArticle2.title = article.title;
