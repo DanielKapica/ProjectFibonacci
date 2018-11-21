@@ -4,7 +4,8 @@ let currentArticle1 = {
     "text": "",
     "source": "",
     "isMisleading": null,
-    "reason": ""
+    "reason": "",
+    "img": ""
 }
 
 let currentArticle2 = {
@@ -13,18 +14,18 @@ let currentArticle2 = {
     "text": "",
     "source": "",
     "isMisleading": null,
-    "reason": ""
+    "reason": "",
+    "img": ""
 }
-
 
 function getRandomArticle(isMisleading) {
     //Fiter articles depending on is isMisleading param
     let filteredArticles = articlesJSON.filter(article => {
-        return article.isMisleading == isMisleading
+        return article.isMisleading == isMisleading;
     })
 
     //Return a random article from the filtered array filteredArticles
-    return filteredArticles[randomNumber(0, filteredArticles.length)]
+    return filteredArticles[randomNumber(0, filteredArticles.length)];
 }
 
 //Return a random Number between two values
@@ -32,50 +33,81 @@ function randomNumber(lowest, highest) {
     return Math.floor((Math.random() * highest) + lowest);
 }
 
+
 function updateArticle(numberOfArticle, article) {
     if (numberOfArticle == 1) {
         //Get html article tags
-        title1 = document.getElementById("articleTitle1")
-        text1 = document.getElementById("articleText1")
-        source1 = document.getElementById("articleSource1")
+        title1 = document.getElementById("articleTitle1");
+        //text1 = document.getElementById("articleText1");
+        sourceFooter1 = document.getElementById("sourceFooter1");
+
 
         //Update currentArticle1
-        currentArticle1.title = article.title
-        currentArticle1.text = article.text
-        currentArticle1.source = article.source
-        currentArticle1.reason = article.reason
+        currentArticle1.title = article.title;
+        //currentArticle1.text = article.text;
+        currentArticle1.source = article.source;
+        currentArticle1.reason = article.reason;
+        currentArticle1.isMisleading = article.isMisleading
+
+        //Change source address to Anonymous if no link provided
+        if (!currentArticle1.source.includes('.')) {
+            currentArticle1.source = "Anonymous"
+        }
 
         //Assign values to html tags
-        title1.innerHTML = currentArticle1.title
-        text1.innerHTML = currentArticle1.text
-        source1.innerHTML = currentArticle1.source
+        title1.innerHTML = `"${currentArticle1.title}"`;
+        //text1.innerHTML = currentArticle1.text;
+        sourceFooter1.innerHTML = `
+        <a href="${currentArticle1.source}"
+        <p id="articleSource1">Source: ${currentArticle1.source}</p>
+        </a>
+        `;
+
     } else {
         //Get html article tags
-        title2 = document.getElementById("articleTitle2")
-        text2 = document.getElementById("articleText2")
-        source2 = document.getElementById("articleSource2")
+        title2 = document.getElementById("articleTitle2");
+        //text2 = document.getElementById("articleText2");
+        sourceFooter2 = document.getElementById("sourceFooter2");
 
         //Update currentArticle2
-        currentArticle2.title = article.title
-        currentArticle2.text = article.text
-        currentArticle2.source = article.source
-        currentArticle2.reason = article.reason
+        currentArticle2.title = article.title;
+        //currentArticle2.text = article.text;
+        currentArticle2.source = article.source;
+        currentArticle2.reason = article.reason;
+        currentArticle2.isMisleading = article.isMisleading;
+
+        //Change source address to Anonymous if no link provided
+        if (!currentArticle2.source.includes('.')) {
+            currentArticle2.source = "Anonymous";
+        }
 
         //Assign values to html tags
-        title2.innerHTML = currentArticle2.title
-        text2.innerHTML = currentArticle2.text
-        source2.innerHTML = currentArticle2.source
+        title2.innerHTML = `"${currentArticle2.title}"`;
+        //text2.innerHTML = currentArticle2.text;
+        sourceFooter2.innerHTML = `
+        <a href="${currentArticle2.source}"
+        <p id="articleSource1">Source: ${currentArticle2.source}</p>
+        </a>
+        `;
     }
 }
 
 function getArticleSet() {
-    let randomPlacement = 1
+    let randomPlacement = 1;
     const realArticle = getRandomArticle(true);
     const misleadingArticle = getRandomArticle(false);
 
+    //Stop the 
+    if (realArticle == currentArticle1 || 
+        misleadingArticle == currentArticle1||
+        realArticle == currentArticle2 ||
+        misleadingArticle == currentArticle2
+        ) {
+        getArticleSet()
+    }
     //Put the fake and real news on different sides of the screen
     randomPlacement = randomNumber(1, 2)
-    if (randomNumber == 1) {
+    if (randomPlacement == 1) {
         updateArticle(1, realArticle);
         updateArticle(2, misleadingArticle);
     } else {
@@ -86,32 +118,41 @@ function getArticleSet() {
 }
 
 function leftArticle() {
-    showReason();
+    const isCorrectClick = !currentArticle1.isMisleading
+    showReason(isCorrectClick);
 }
 
 function rightArticle() {
-    showReason();
+    const isCorrectClick = !currentArticle2.isMisleading
+    showReason(isCorrectClick);
 }
 
-function showReason() {
-    //document.body.style.background = 'red';
+function showReason(userIsCorrect) {
 
+    let reasonContainer = document.getElementById('reason-container')
+    let reasonContainerBody = document.getElementById('reasonContainerBody')
+    let reasonTitle = document.getElementById('reasonTitle');
+    
+    reason1 = currentArticle1.reason;
+    reason2 = currentArticle2.reason;
 
-    reason1 = currentArticle1.reason
-    reason2 = currentArticle2.reason
-
-    document.getElementById('reason-container').style.display = "block";
-
-
-    document.getElementById('reasonTitle').innerHTML = `Reasons`
+    reasonContainer.style.display = "block";
+    console.log('userIsCorrect', userIsCorrect)
+    if (userIsCorrect) {
+        reasonTitle.innerHTML = `You are correct!\nReasons:`;
+        reasonContainerBody.className += " text-success"
+    } else if (!userIsCorrect) {
+        reasonTitle.innerHTML = `You are incorrect!\nReasons:`;
+        reasonContainerBody.className += " text-danger"
+    }
 
     document.getElementById('reasonText').innerHTML =
         `<ul>
     <h3>Left Article</h3>
-    <li>${reason1}</li>
-    <h3>Right Article</h3>
-    <li>${reason2}</li></ul>`
-
+    <li><h4>${reason1}</h4></li>
+    <h3>Right Article</h3> 
+    <li><h4>${reason2}</h4></li>
+    </ul>`;
 }
 
 function hideReason() {
@@ -119,16 +160,11 @@ function hideReason() {
 }
 
 function nextQuestion() {
-    hideReason()
-    getArticleSet()
+    hideReason();
+    getArticleSet();
+    let reasonContainerBody = document.getElementById('reasonContainerBody')
+    reasonContainerBody.className = "card-body"
 }
 
 //ONSTART
 getArticleSet();
-
-//Listeners
-let article1Btn = document.getElementById('article1')
-let article2Btn = document.getElementById('article2')
-
-article1Btn.addEventListener("click", leftArticle, false)
-article2Btn.addEventListener("click", rightArticle, false)
