@@ -1,3 +1,4 @@
+let score = 0;
 let currentArticle1 = {
     "number": 1,
     "title": "",
@@ -6,7 +7,7 @@ let currentArticle1 = {
     "isMisleading": null,
     "reason": "",
     "img": ""
-}
+};
 
 let currentArticle2 = {
     "number": 2,
@@ -16,7 +17,7 @@ let currentArticle2 = {
     "isMisleading": null,
     "reason": "",
     "img": ""
-}
+};
 
 function getRandomArticle(isMisleading) {
     //Fiter articles depending on is isMisleading param
@@ -78,7 +79,7 @@ function updateArticle(numberOfArticle, article) {
         currentArticle2.text = article.text;
         currentArticle2.source = article.source;
         currentArticle2.reason = article.reason;
-        currentArticle2.img = article.img
+        currentArticle2.img = article.img;
         currentArticle2.isMisleading = article.isMisleading;
 
         //Change source address to Anonymous if no link provided
@@ -144,6 +145,7 @@ function showReason(userIsCorrect) {
 
     reasonContainer.style.display = "block";
     if (userIsCorrect) {
+        updateScore(1)
         reasonTitle.innerHTML = `You are correct!\nReasons:`;
         reasonContainerBody.className += " text-success"
     } else if (!userIsCorrect) {
@@ -158,6 +160,17 @@ function showReason(userIsCorrect) {
     <h3>Right Article</h3> 
     <li><h4>${reason2}</h4></li>
     </ul>`;
+}
+
+
+function updateScore(increment) {
+    score += increment
+    updateScoreChip()
+}
+
+function updateScoreChip(){
+    document.getElementById('scoreChip').innerHTML = `Score: ${score}`
+    document.getElementById('scoreChip').style.backgroundColor = 'rgb(' + (240 - (score * 14)) + ',' + 240 + ',' + (240 - (score * 14)) + ')';
 }
 
 function hideReason() {
