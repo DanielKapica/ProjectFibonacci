@@ -38,17 +38,17 @@ function updateArticle(numberOfArticle, article) {
     if (numberOfArticle == 1) {
         //Get html article tags
        let title1 = document.getElementById("articleTitle1");
-        //text1 = document.getElementById("articleText1");
+        text1 = document.getElementById("articleText1");
         let sourceFooter1 = document.getElementById("sourceFooter1");
-        //let img1 = document.getElementById('img1')
+        let img1 = document.getElementById('img1')
 
 
         //Update currentArticle1
         currentArticle1.title = article.title;
-        //currentArticle1.text = article.text;
+        currentArticle1.text = article.text;
         currentArticle1.source = article.source;
         currentArticle1.reason = article.reason;
-        //currentArticle1.img = article.img;
+        currentArticle1.img = article.img;
         currentArticle1.isMisleading = article.isMisleading
  
         //Change source address to Anonymous if no link provided
@@ -58,8 +58,8 @@ function updateArticle(numberOfArticle, article) {
 
         //Assign values to html tags
         title1.innerHTML = `"${currentArticle1.title}"`;
-        //text1.innerHTML = currentArticle1.text;
-        //img1.src = currentArticle1.img
+        text1.innerHTML = currentArticle1.text;
+        img1.src = currentArticle1.img
         sourceFooter1.innerHTML = `
         <a href="${currentArticle1.source}"
         <p id="articleSource1">Source: ${currentArticle1.source}</p>
@@ -69,16 +69,16 @@ function updateArticle(numberOfArticle, article) {
     } else {
         //Get html article tags
         let title2 = document.getElementById("articleTitle2");
-        //text2 = document.getElementById("articleText2");
+        text2 = document.getElementById("articleText2");
         let sourceFooter2 = document.getElementById("sourceFooter2");
-        //let img2 = document.getElementById('img2')
+        let img2 = document.getElementById('img2')
 
         //Update currentArticle2
         currentArticle2.title = article.title;
-        //currentArticle2.text = article.text;
+        currentArticle2.text = article.text;
         currentArticle2.source = article.source;
         currentArticle2.reason = article.reason;
-        //currentArticle2.img = article.img
+        currentArticle2.img = article.img
         currentArticle2.isMisleading = article.isMisleading;
 
         //Change source address to Anonymous if no link provided
@@ -88,8 +88,8 @@ function updateArticle(numberOfArticle, article) {
 
         //Assign values to html tags
         title2.innerHTML = `"${currentArticle2.title}"`;
-        //text2.innerHTML = currentArticle2.text;
-        //img2.src = currentArticle2.img
+        text2.innerHTML = currentArticle2.text;
+        img2.src = currentArticle2.img
         sourceFooter2.innerHTML = `
         <a href="${currentArticle2.source}"
         <p id="articleSource1">Source: ${currentArticle2.source}</p>

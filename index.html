@@ -26,9 +26,26 @@
         <!-- Article Containers -->
         <div class="conatiner-fluid">
             <div class="row">
-                <div class=" article card col" id="article1" onclick="leftArticle()" data-toggle="collapse" href="#reason-container"
+                <div class=" article card col" id="article1" data-toggle="collapse" href="#reason-container"
                     role="div" aria-expanded="false" aria-controls="reason-container">
                     <h2 id="articleTitle1"></h2>
+
+                    <div class="accordion" id="accordionExample1">
+                        <div class="card">
+                            <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                                Preview Content
+                            </button>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample1">
+                            <div class="card-body">
+                                <img id="img1">
+                                <p id="articleText1"></p> 
+                            </div>
+                        </div>
+
+                    </div>
 
                     <div id="sourceFooter1" class="card-footer">
                         <!--JS will put the source here-->
@@ -36,10 +53,25 @@
                     <button class="btn btn-secondary" onclick="leftArticle()">Select</button>
                 </div>
 
-                <div class="article card card-hover col" id="article2" onclick="rightArticle()" data-toggle="collapse"
+                <div class="article card card-hover col" id="article2" data-toggle="collapse"
                     href="#reason-container" role="div" aria-expanded="false" aria-controls="reason-container">
                     <h2 id="articleTitle2"></h2>
-                    <p id="articleText2"></p>
+                    <div class="accordion" id="accordionExample2">
+                        <div class="card">
+                            <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                                aria-expanded="true" aria-controls="collapseTwo">
+                                Preview Content
+                            </button>
+                        </div>
+
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample2">
+                            <div class="card-body">
+                                <img id="img2">
+                                <p id="articleText2"></p> 
+                            </div>
+                        </div>
+
+                    </div>
                     <div id="sourceFooter2" class="card-footer">
                         <!--JS will put the source here-->
                     </div>
@@ -64,18 +96,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
-                    <h5>Find Out More About Misleading Articles</h5>
+                    <h5>Learn how to discern misleading articles</h5>
                     <ul>
-                        <li><a href="#"> </a></li>
                         <li><a href="https://docs.google.com/document/d/1csMNt7EivUfn16yuMhbl2bw2lQvbGX3ia-M1XFk-E20/edit?usp=sharing">Content
                                 Examples</a></li>
+                        <li><a href="#"> </a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
-                    <h5>About us</h5>
+                    <h5>Our partners</h5>
                     <ul>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">COLIBLITE</a></li>
+                        <li><a href="#"></a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
@@ -93,10 +125,8 @@
         </div>
         <div class="second-bar">
             <div class="container">
-                <h2 class="logo"><a href="#"> LOGO </a></h2>
+                <h2 class="logo"><a href="#">#realnews </a></h2>
                 <div class="social-icons">
-                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
                     <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
                 </div>
             </div>

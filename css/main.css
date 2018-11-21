@@ -1,5 +1,12 @@
 
+#img1 {
+  width: 20%;
+}
 
+
+#img2 {
+  width: 20%;
+}
 #navbar-link {
   font-family: 'Oswald', sans-serif;
   font-size: 50px;
@@ -10,6 +17,15 @@
   font-size: 36px;
 }
 
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
 h1 {
   font-family: 'Oswald', sans-serif;
 }
@@ -51,6 +67,8 @@ body {
 
 .reason-container {
   display: none;
+  margin: 16px auto;
+  width: 70%; 
 }
 
 
@@ -60,7 +78,7 @@ body {
   bottom: 0;
   margin-block-end: 0%;
   position: relative;
-  transition: bottom 3000ms linear;
+  transition: bottom 1000ms linear;
 }
 
 #myFooter .row {
